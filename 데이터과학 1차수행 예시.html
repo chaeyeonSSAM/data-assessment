@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<!-- saved from url=(0176)file:///F:/2026%20%ED%8F%89%EA%B0%80/%EC%88%98%ED%96%89%ED%8F%89%EA%B0%80/%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B3%BC%ED%95%99%201%EC%B0%A8%EC%88%98%ED%96%89%20%EC%98%88%EC%8B%9C.html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>데이터 기반 사회변화 논증 수행평가</title>
+<script src="./데이터과학 1차수행 예시_files/chart.umd.min.js.다운로드"></script>
+<link href="./데이터과학 1차수행 예시_files/css2" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface2: #1c2330;
+  --border: #30363d;
+  --border2: #21262d;
+  --text: #e6edf3;
+  --text2: #8b949e;
+  --text3: #6e7681;
+  --accent: #58a6ff;
+  --accent2: #79c0ff;
+  --green: #3fb950;
+  --orange: #f0883e;
+  --red: #ff7b72;
+  --purple: #bc8cff;
+  --yellow: #d29922;
+  --teal: #39d353;
+  --chart1: #58a6ff;
+  --chart2: #3fb950;
+  --chart3: #f0883e;
+  --chart4: #bc8cff;
+  --chart5: #ff7b72;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.logo-chip {
+  background: var(--accent);
+  color: #0d1117;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 1.5px;
+}
+.logo-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+.header-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  color: var(--text2);
+  font-family: 'IBM Plex Mono', monospace;
+}
+.header-meta span { display: flex; align-items: center; gap: 5px; }
+
+/* ── TAB NAV ── */
+.tab-nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.tab-nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  gap: 0;
+}
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text2);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: 700;
+}
+.tab-badge {
+  background: var(--surface2);
+  color: var(--text2);
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 1px 5px;
+  border-radius: 10px;
+  margin-left: 6px;
+}
+.tab-btn.active .tab-badge { background: rgba(88,166,255,0.15); color: var(--accent); }
+
+/* ── MAIN ── */
+.main { max-width: 1100px; margin: 0 auto; padding: 32px 28px; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── QUESTION BLOCK ── */
+.question-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.question-block-header {
+  background: linear-gradient(135deg, #1c2a3a 0%, #1a2332 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.q-num {
+  background: var(--accent);
+  color: #0d1117;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.q-content h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.q-meta {
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+.q-tag {
+  font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid;
+}
+.q-tag.score { border-color: var(--green); color: var(--green); }
+.q-tag.time { border-color: var(--orange); color: var(--orange); }
+.q-tag.level { border-color: var(--purple); color: var(--purple); }
+
+.question-desc {
+  padding: 20px 28px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--text2);
+  border-bottom: 1px solid var(--border2);
+}
+.question-desc p { margin-bottom: 10px; }
+.question-desc p:last-child { margin-bottom: 0; }
+.question-desc strong { color: var(--text); }
+
+.question-requirements {
+  padding: 16px 28px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.req-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text2);
+}
+.req-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+/* ── SECTION HEADER ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.section-header h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.section-chip {
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--text3);
+  letter-spacing: 1px;
+}
+
+/* ── DATA GRID ── */
+.data-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+.data-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.data-card:hover { border-color: var(--accent); }
+.data-card.wide { grid-column: 1 / -1; }
+.data-card-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.data-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.data-icon {
+  width: 28px; height: 28px;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.data-card-title h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+.data-card-title small {
+  font-size: 11px;
+  color: var(--text3);
+  font-family: 'IBM Plex Mono', monospace;
+}
+.data-source {
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--text3);
+  background: var(--surface2);
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+.data-card-body { padding: 16px 18px; }
+.chart-wrap { position: relative; width: 100%; }
+
+/* ── DATA TABLE ── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.data-table th {
+  background: var(--surface2);
+  color: var(--text2);
+  font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  padding: 8px 12px;
+  text-align: center;
+  border: 1px solid var(--border2);
+  letter-spacing: 0.5px;
+}
+.data-table td {
+  padding: 8px 12px;
+  text-align: center;
+  border: 1px solid var(--border2);
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--text2);
+  font-size: 12px;
+  transition: background 0.15s;
+}
+.data-table tr:hover td { background: rgba(88,166,255,0.05); color: var(--text); }
+.data-table td:first-child { text-align: left; font-family: 'Noto Sans KR', sans-serif; color: var(--text); font-size: 12px; }
+.data-table .highlight { color: var(--accent); font-weight: 600; }
+.data-table .up { color: var(--red); }
+.data-table .down { color: var(--green); }
+.data-table .tag-chip {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* ── INSIGHT CALLOUT ── */
+.insight-bar {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: rgba(88,166,255,0.07);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+.insight-bar strong { color: var(--accent2); }
+
+/* ── ANSWER AREA ── */
+.answer-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.answer-section-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.answer-section-header h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+.answer-hint {
+  font-size: 11px;
+  color: var(--text3);
+  font-family: 'IBM Plex Mono', monospace;
+}
+.answer-section-body { padding: 20px 24px; }
+
+.answer-structure {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.answer-field {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.answer-field:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(88,166,255,0.1);
+}
+.answer-field-label {
+  padding: 10px 16px;
+  background: rgba(88,166,255,0.05);
+  border-bottom: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.answer-field-label .label-left {
+  display: flex; align-items: center; gap: 8px;
+}
+.field-num {
+  background: var(--accent);
+  color: #0d1117;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.field-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+}
+.field-sub {
+  font-size: 11px;
+  color: var(--text3);
+}
+.char-counter {
+  font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--text3);
+}
+.char-counter.warn { color: var(--orange); }
+.char-counter.ok { color: var(--green); }
+
+.answer-field textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  line-height: 1.9;
+  padding: 14px 16px;
+  resize: none;
+  min-height: 100px;
+}
+.answer-field textarea::placeholder { color: var(--text3); font-size: 13px; }
+.answer-field textarea.large { min-height: 200px; }
+
+.evidence-selector {
+  padding: 10px 16px;
+  background: var(--surface);
+  border-top: 1px solid var(--border2);
+}
+.evidence-selector p {
+  font-size: 11px;
+  color: var(--text3);
+  margin-bottom: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.evidence-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.ev-chip {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: 'Noto Sans KR', sans-serif;
+  user-select: none;
+}
+.ev-chip:hover { border-color: var(--accent); color: var(--accent); }
+.ev-chip.selected {
+  background: rgba(88,166,255,0.12);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── SUBMIT AREA ── */
+.submit-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: var(--surface2);
+  border-top: 1px solid var(--border);
+}
+.submit-info { font-size: 12px; color: var(--text3); }
+.submit-buttons { display: flex; gap: 10px; }
+.btn-save {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 9px 20px;
+  font-size: 13px;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+.btn-save:hover { border-color: var(--text2); color: var(--text); }
+.btn-submit {
+  background: var(--accent);
+  border: none;
+  color: #0d1117;
+  padding: 9px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+.btn-submit:hover { background: var(--accent2); }
+
+/* ── EXAMPLE ANSWER ── */
+.example-answer-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.example-toggle {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: var(--text);
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+  transition: background 0.2s;
+}
+.example-toggle:hover { background: var(--surface2); }
+.toggle-arrow {
+  font-size: 14px;
+  color: var(--text3);
+  transition: transform 0.3s;
+}
+.example-toggle.open .toggle-arrow { transform: rotate(180deg); }
+.example-toggle .toggle-tag {
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  background: rgba(63,185,80,0.12);
+  color: var(--green);
+  border: 1px solid rgba(63,185,80,0.3);
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+
+.example-body {
+  display: none;
+  border-top: 1px solid var(--border);
+}
+.example-body.open { display: block; }
+.example-body-inner { padding: 24px; }
+
+.example-section {
+  margin-bottom: 20px;
+  padding: 16px 18px;
+  background: var(--surface2);
+  border-radius: 6px;
+  border-left: 3px solid;
+}
+.example-section.thesis { border-left-color: var(--accent); }
+.example-section.evidence { border-left-color: var(--green); }
+.example-section.logic { border-left-color: var(--orange); }
+.example-section.counter { border-left-color: var(--purple); }
+.example-section.conclusion { border-left-color: var(--teal); }
+
+.example-section-title {
+  font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.example-section.thesis .example-section-title { color: var(--accent); }
+.example-section.evidence .example-section-title { color: var(--green); }
+.example-section.logic .example-section-title { color: var(--orange); }
+.example-section.counter .example-section-title { color: var(--purple); }
+.example-section.conclusion .example-section-title { color: var(--teal); }
+
+.example-section p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--text2);
+}
+.example-section strong { color: var(--text); }
+
+.data-ref {
+  display: inline-block;
+  background: rgba(88,166,255,0.1);
+  border: 1px solid rgba(88,166,255,0.3);
+  color: var(--accent);
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+/* ── RUBRIC TAB ── */
+.rubric-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.rubric-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.rubric-card-header {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.rubric-card-header h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+.score-total {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.rubric-levels {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.rubric-level {
+  padding: 14px 16px;
+  border-right: 1px solid var(--border2);
+}
+.rubric-level:last-child { border-right: none; }
+.level-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.level-name {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.level-score {
+  font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.level-A .level-name { color: var(--green); }
+.level-A .level-score { background: rgba(63,185,80,0.1); color: var(--green); }
+.level-B .level-name { color: var(--accent); }
+.level-B .level-score { background: rgba(88,166,255,0.1); color: var(--accent); }
+.level-C .level-name { color: var(--orange); }
+.level-C .level-score { background: rgba(240,136,62,0.1); color: var(--orange); }
+.level-D .level-name { color: var(--red); }
+.level-D .level-score { background: rgba(255,123,114,0.1); color: var(--red); }
+.level-desc {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text2);
+}
+
+/* ── ANNOTATION ── */
+.annotation-note {
+  padding: 14px 18px;
+  background: rgba(188,140,255,0.07);
+  border: 1px solid rgba(188,140,255,0.2);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.annotation-note strong { color: var(--purple); }
+
+/* ── PRINT ── */
+@media print {
+  .tab-nav, .submit-area, .btn-save, .btn-submit, .example-toggle { display: none !important; }
+  .tab-panel { display: block !important; }
+  body { background: white; color: black; }
+}
+
+@media (max-width: 700px) {
+  .data-grid { grid-template-columns: 1fr; }
+  .data-card.wide { grid-column: 1; }
+  .rubric-levels { grid-template-columns: repeat(2, 1fr); }
+  .container { padding: 16px; }
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.data-card { animation: fadeUp 0.4s ease both; }
+.data-card:nth-child(1) { animation-delay: 0.05s; }
+.data-card:nth-child(2) { animation-delay: 0.1s; }
+.data-card:nth-child(3) { animation-delay: 0.15s; }
+.data-card:nth-child(4) { animation-delay: 0.2s; }
+.data-card:nth-child(5) { animation-delay: 0.25s; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <span class="logo-chip">수행평가</span>
+      <span class="logo-title">데이터 기반 사회변화 논증</span>
+    </div>
+    <div class="header-meta">
+      <span>📅 데이터 과학 김채연T</span>
+      <span>⏱ 50분</span>
+      <span>📊 100점</span>
+    </div>
+  </div>
+</header>
+
+<!-- TAB NAV -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" onclick="switchTab(&#39;data&#39;)">
+      📊 문제 &amp; 데이터<span class="tab-badge">5개</span>
+    </button>
+    <button class="tab-btn" onclick="switchTab(&#39;answer&#39;)">
+      ✍️ 답안 작성
+    </button>
+    <button class="tab-btn" onclick="switchTab(&#39;example&#39;)">
+      💡 예시 답안<span class="tab-badge">모범</span>
+    </button>
+    <button class="tab-btn" onclick="switchTab(&#39;rubric&#39;)">
+      📋 채점 기준표
+    </button>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- ══════════════ TAB 1: 문제 & 데이터 ══════════════ -->
+  <div id="tab-data" class="tab-panel active">
+
+    <!-- 문제 -->
+    <div class="question-block">
+      <div class="question-block-header">
+        <div class="q-num">Q</div>
+        <div class="q-content">
+          <h2>아래 제시된 5개의 데이터 자료를 종합적으로 분석하여, "디지털 전환이 한국 사회의 노동·소비·교육 구조를 어떻게 변화시키고 있는가"에 대해 근거 자료를 명시하며 논증하시오.</h2>
+          <div class="q-meta">
+            <span class="q-tag score">100점</span>
+            <span class="q-tag time">제한시간 50분</span>
+            <span class="q-tag level">상급 / 논술형</span>
+          </div>
+        </div>
+      </div>
+      <div class="question-desc">
+        <p><strong>논증 구조 요건:</strong> 주장(thesis) → 근거(data 인용, 최소 3개 이상) → 반론 인식 → 재반박 → 결론의 5단 구조를 갖추어야 합니다.</p>
+        <p><strong>데이터 인용 방법:</strong> 각 데이터를 인용할 때 "[자료 번호]"를 명시하고, 구체적인 수치 또는 추세를 근거로 사용해야 합니다.</p>
+        <p><strong>분량:</strong> 최소 600자 이상 / 권장 800~1,000자</p>
+      </div>
+      <div class="question-requirements">
+        <div class="req-item"><span class="req-dot"></span><span>자료 최소 3개 이상 인용 필수</span></div>
+        <div class="req-item"><span class="req-dot"></span><span>단순 수치 나열 금지 (해석·연결 필요)</span></div>
+        <div class="req-item"><span class="req-dot"></span><span>반론 인식 후 재반박 포함</span></div>
+        <div class="req-item"><span class="req-dot"></span><span>사회적 시사점으로 마무리</span></div>
+      </div>
+    </div>
+
+    <!-- DATA SECTION HEADER -->
+    <div class="section-header">
+      <h3>제시 데이터 (5종)</h3>
+      <div class="section-line"></div>
+      <span class="section-chip">DATA SOURCES</span>
+    </div>
+
+    <!-- DATA GRID -->
+    <div class="data-grid">
+
+      <!-- [자료1] 재택근무 비율 추이 -->
+      <div class="data-card">
+        <div class="data-card-header">
+          <div class="data-card-title">
+            <div class="data-icon" style="background:rgba(88,166,255,0.12)">💼</div>
+            <div>
+              <h4>[자료 1] 국내 재택근무 비율 추이</h4>
+              <small>2018–2024 · 취업자 대비 %</small>
+            </div>
+          </div>
+          <span class="data-source">통계청 경활조사</span>
+        </div>
+        <div class="data-card-body">
+          <div class="chart-wrap" style="height:200px">
+            <canvas id="chart1" width="474" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 474px;"></canvas>
+          </div>
+          <table class="data-table" style="margin-top:12px">
+            <thead>
+              <tr><th>연도</th><th>전체(%)</th><th>IT직종(%)</th><th>제조업(%)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2018</td><td>2.3</td><td>8.1</td><td>0.4</td></tr>
+              <tr><td>2020</td><td>11.4</td><td>38.2</td><td>1.2</td></tr>
+              <tr><td>2022</td><td>14.8</td><td>42.5</td><td>1.8</td></tr>
+              <tr><td>2024</td><td class="highlight">18.2</td><td class="highlight">51.3</td><td>2.1</td></tr>
+            </tbody>
+          </table>
+          <div class="insight-bar">
+            <strong>핵심 패턴:</strong> 2018 대비 2024년 재택근무 비율 <strong>7.9배</strong> 증가. IT직종은 전체 취업자의 절반 이상이 재택 근무. 직종 간 디지털 격차 뚜렷함.
+          </div>
+        </div>
+      </div>
+
+      <!-- [자료2] 온라인 쇼핑 거래액 -->
+      <div class="data-card">
+        <div class="data-card-header">
+          <div class="data-card-title">
+            <div class="data-icon" style="background:rgba(63,185,80,0.12)">🛒</div>
+            <div>
+              <h4>[자료 2] 온라인 쇼핑 거래액 변화</h4>
+              <small>2015–2024 · 조 원 단위</small>
+            </div>
+          </div>
+          <span class="data-source">통계청 온라인쇼핑동향</span>
+        </div>
+        <div class="data-card-body">
+          <div class="chart-wrap" style="height:200px">
+            <canvas id="chart2" width="474" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 474px;"></canvas>
+          </div>
+          <table class="data-table" style="margin-top:12px">
+            <thead>
+              <tr><th>연도</th><th>총거래액(조)</th><th>모바일비율(%)</th><th>전년대비</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2015</td><td>54.1</td><td>31.2</td><td>-</td></tr>
+              <tr><td>2018</td><td>111.9</td><td>58.7</td><td class="up">↑23%</td></tr>
+              <tr><td>2021</td><td>187.6</td><td>69.4</td><td class="up">↑18%</td></tr>
+              <tr><td>2024</td><td class="highlight">248.3</td><td class="highlight">76.1</td><td class="up">↑11%</td></tr>
+            </tbody>
+          </table>
+          <div class="insight-bar">
+            <strong>핵심 패턴:</strong> 9년간 거래액 <strong>4.6배</strong> 성장. 모바일 쇼핑 비중이 76%로 오프라인 소비 구조를 근본적으로 대체. 새벽배송·당일배송 서비스 확산과 연동.
+          </div>
+        </div>
+      </div>
+
+      <!-- [자료3] 에듀테크 시장 & 학습 시간 -->
+      <div class="data-card">
+        <div class="data-card-header">
+          <div class="data-card-title">
+            <div class="data-icon" style="background:rgba(240,136,62,0.12)">📚</div>
+            <div>
+              <h4>[자료 3] 에듀테크 시장 규모 &amp; 온라인 학습</h4>
+              <small>2017–2024 · 시장 규모(억원) / 1인 주간 온라인 학습시간(h)</small>
+            </div>
+          </div>
+          <span class="data-source">교육부·KERIS</span>
+        </div>
+        <div class="data-card-body">
+          <div class="chart-wrap" style="height:200px">
+            <canvas id="chart3" width="474" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 474px;"></canvas>
+          </div>
+          <table class="data-table" style="margin-top:12px">
+            <thead>
+              <tr><th>연도</th><th>시장규모(억원)</th><th>온라인학습(h/주)</th><th>AI튜터 사용률</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2017</td><td>21,400</td><td>1.2</td><td>0.3%</td></tr>
+              <tr><td>2020</td><td>48,900</td><td>6.8</td><td>4.1%</td></tr>
+              <tr><td>2022</td><td>72,300</td><td>9.4</td><td>11.3%</td></tr>
+              <tr><td>2024</td><td class="highlight">104,700</td><td class="highlight">12.7</td><td class="highlight">28.9%</td></tr>
+            </tbody>
+          </table>
+          <div class="insight-bar">
+            <strong>핵심 패턴:</strong> 에듀테크 시장 7년간 <strong>4.9배</strong> 성장. AI 튜터 활용율 29%에 달해 맞춤형 학습 패러다임 전환 진행 중.
+          </div>
+        </div>
+      </div>
+
+      <!-- [자료4] 직업 자동화 위험도 -->
+      <div class="data-card">
+        <div class="data-card-header">
+          <div class="data-card-title">
+            <div class="data-icon" style="background:rgba(188,140,255,0.12)">🤖</div>
+            <div>
+              <h4>[자료 4] 직업군별 AI 자동화 위험도</h4>
+              <small>2024년 기준 · 한국고용정보원</small>
+            </div>
+          </div>
+          <span class="data-source">고용정보원 2024</span>
+        </div>
+        <div class="data-card-body">
+          <div class="chart-wrap" style="height:200px">
+            <canvas id="chart4" width="474" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 474px;"></canvas>
+          </div>
+          <table class="data-table" style="margin-top:12px">
+            <thead>
+              <tr><th>직업군</th><th>자동화 위험도</th><th>예상 대체율</th><th>신규직 창출</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>사무/회계직</td><td><span class="tag-chip" style="background:rgba(255,123,114,0.15);color:var(--red)">매우 높음</span></td><td class="up">68%</td><td class="down">+12%</td></tr>
+              <tr><td>운송/배달직</td><td><span class="tag-chip" style="background:rgba(255,123,114,0.15);color:var(--red)">높음</span></td><td class="up">52%</td><td class="down">+8%</td></tr>
+              <tr><td>IT/개발직</td><td><span class="tag-chip" style="background:rgba(88,166,255,0.15);color:var(--accent)">낮음</span></td><td>11%</td><td class="down">+34%</td></tr>
+              <tr><td>의료/복지직</td><td><span class="tag-chip" style="background:rgba(63,185,80,0.15);color:var(--green)">매우 낮음</span></td><td>7%</td><td class="down">+28%</td></tr>
+              <tr><td>예술/창작직</td><td><span class="tag-chip" style="background:rgba(240,136,62,0.15);color:var(--orange)">중간</span></td><td>34%</td><td class="down">+19%</td></tr>
+            </tbody>
+          </table>
+          <div class="insight-bar">
+            <strong>핵심 패턴:</strong> 사무직 68% 대체 위험 vs IT직 34% 신규 창출. 직종 간 양극화 심화 예측. 디지털 역량이 노동시장 생존의 핵심 변수로 부상.
+          </div>
+        </div>
+      </div>
+
+      <!-- [자료5] 디지털 리터러시 격차 -->
+      <div class="data-card wide">
+        <div class="data-card-header">
+          <div class="data-card-title">
+            <div class="data-icon" style="background:rgba(57,211,83,0.12)">📶</div>
+            <div>
+              <h4>[자료 5] 세대·소득별 디지털 리터러시 격차 (2024)</h4>
+              <small>과학기술정보통신부 디지털 역량조사 · 100점 만점</small>
+            </div>
+          </div>
+          <span class="data-source">과기부 2024</span>
+        </div>
+        <div class="data-card-body">
+          <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:start">
+            <div>
+              <div class="chart-wrap" style="height:220px">
+                <canvas id="chart5" width="537" height="220" style="display: block; box-sizing: border-box; height: 220px; width: 537px;"></canvas>
+              </div>
+            </div>
+            <div>
+              <table class="data-table">
+                <thead>
+                  <tr><th>구분</th><th>평균점수</th><th>AI활용점수</th><th>격차</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>20대</td><td class="highlight">87.4</td><td class="highlight">76.2</td><td>-</td></tr>
+                  <tr><td>40대</td><td>71.8</td><td>52.1</td><td class="up">▼15.6p</td></tr>
+                  <tr><td>60대 이상</td><td>41.2</td><td>18.3</td><td class="up">▼46.2p</td></tr>
+                  <tr><td>고소득층</td><td class="highlight">83.6</td><td>71.4</td><td>-</td></tr>
+                  <tr><td>저소득층</td><td>52.1</td><td>31.7</td><td class="up">▼31.5p</td></tr>
+                </tbody>
+              </table>
+              <div class="insight-bar" style="margin-top:12px">
+                <strong>핵심 패턴:</strong> 20대와 60대 이상의 AI 활용 격차 <strong>57.9점</strong>. 소득 격차에 따른 디지털 불평등이 교육·노동시장 기회 불평등으로 전이될 위험.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /data-grid -->
+  </div><!-- /tab-data -->
+
+
+  <!-- ══════════════ TAB 2: 답안 작성 ══════════════ -->
+  <div id="tab-answer" class="tab-panel">
+
+    <div class="annotation-note">
+      <strong>작성 안내:</strong> 아래 5단계 논증 구조에 맞추어 작성하세요. 각 단계에서 <strong>데이터 번호 [자료 N]</strong>을 명시하고 구체적 수치를 근거로 활용해야 합니다. 하단의 증거 태그를 클릭하면 인용한 자료를 표시할 수 있습니다.
+    </div>
+
+    <div class="answer-section">
+      <div class="answer-section-header">
+        <h3>✍️ 논증 답안 작성</h3>
+        <span class="answer-hint">총 자수: <span id="total-chars">0</span>자 / 권장 800자</span>
+      </div>
+      <div class="answer-section-body">
+        <div class="answer-structure">
+
+          <!-- 1. 주장 -->
+          <div class="answer-field" id="field-1">
+            <div class="answer-field-label">
+              <div class="label-left">
+                <span class="field-num">1</span>
+                <div>
+                  <div class="field-title">주장 (Thesis)</div>
+                  <div class="field-sub">디지털 전환이 사회 구조에 미치는 핵심 주장을 한 문단으로 서술</div>
+                </div>
+              </div>
+              <span class="char-counter" id="cc-1">0자</span>
+            </div>
+            <textarea placeholder="예) 디지털 전환은 한국 사회의 노동·소비·교육 구조를 동시다발적으로 재편하고 있으며, 이 변화는 기회와 불평등을 함께 심화시키는 양면적 특성을 지닌다..." oninput="updateCount(this,&#39;cc-1&#39;)"></textarea>
+            <div class="evidence-selector">
+              <p>✦ 인용 예정 자료 선택</p>
+              <div class="evidence-chips">
+                <span class="ev-chip" onclick="toggleChip(this)">[자료1] 재택근무</span>
+                <span class="ev-chip" onclick="toggleChip(this)">[자료2] 온라인쇼핑</span>
+                <span class="ev-chip" onclick="toggleChip(this)">[자료3] 에듀테크</span>
+                <span class="ev-chip" onclick="toggleChip(this)">[자료4] 자동화위험</span>
+                <span class="ev-chip" onclick="toggleChip(this)">[자료5] 디지털격차</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. 근거1 -->
+          <div class="answer-field" id="field-2">
+            <div class="answer-field-label">
+              <div class="label-left">
+                <span class="field-num">2</span>
+                <div>
+                  <div class="field-title">근거 1 — 노동 구조 변화</div>
+                  <div class="field-sub">[자료1] [자료4] 를 활용한 노동시장 변화 논거</div>
+                </div>
+              </div>
+              <span class="char-counter" id="cc-2">0자</span>
+            </div>
+            <textarea placeholder="[자료1]에 따르면 2024년 재택근무 비율은 18.2%로 2018년 대비 7.9배 증가했으며, IT직종은 51.3%에 달한다..." oninput="updateCount(this,&#39;cc-2&#39;)"></textarea>
+            <div class="evidence-selector">
+              <p>✦ 인용 자료 선택</p>
+              <div class="evidence-chips">
+                <span class="ev-chip" onclick="toggleChip(this)">[자료1] 재택근무</span>
+                <span class="ev-chip" onclick="toggleChip(this)">[자료4] 자동화위험</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. 근거2 -->
+          <div class="answer-field" id="field-3">
+            <div class="answer-field-label">
+              <div class="label-left">
+                <span class="field-num">3</span>
+                <div>
+                  <div class="field-title">근거 2 — 소비·교육 구조 변화</div>
+                  <div class="field-sub">[자료2] [자료3] 를 활용한 소비·학습 패턴 변화 논거</div>
+                </div>
+              </div>
+              <span class="char-counter" id="cc-3">0자</span>
+            </div>
+            <textarea placeholder="소비 영역에서 [자료2]는 온라인 쇼핑 거래액이 2015년 54조에서 2024년 248조로 4.6배 성장했음을 보여준다..." oninput="updateCount(this,&#39;cc-3&#39;)"></textarea>
+            <div class="evidence-selector">
+              <p>✦ 인용 자료 선택</p>
+              <div class="evidence-chips">
+                <span class="ev-chip" onclick="toggleChip(this)">[자료2] 온라인쇼핑</span>
+                <span class="ev-chip" onclick="toggleChip(this)">[자료3] 에듀테크</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. 반론 & 재반박 -->
+          <div class="answer-field" id="field-4">
+            <div class="answer-field-label">
+              <div class="label-left">
+                <span class="field-num">4</span>
+                <div>
+                  <div class="field-title">반론 인식 및 재반박</div>
+                  <div class="field-sub">디지털 전환의 부정적 측면을 인정하되, [자료5] 등으로 논리 보강</div>
+                </div>
+              </div>
+              <span class="char-counter" id="cc-4">0자</span>
+            </div>
+            <textarea placeholder="물론 디지털 전환이 긍정적 변화만을 야기한다는 주장은 지나치다. [자료5]에 따르면 20대와 60대 이상의 AI 활용 점수 격차가 57.9점에 달하는 등..." oninput="updateCount(this,&#39;cc-4&#39;)"></textarea>
+            <div class="evidence-selector">
+              <p>✦ 인용 자료 선택</p>
+              <div class="evidence-chips">
+                <span class="ev-chip" onclick="toggleChip(this)">[자료4] 자동화위험</span>
+                <span class="ev-chip" onclick="toggleChip(this)">[자료5] 디지털격차</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. 결론 -->
+          <div class="answer-field" id="field-5">
+            <div class="answer-field-label">
+              <div class="label-left">
+                <span class="field-num">5</span>
+                <div>
+                  <div class="field-title">결론 및 사회적 시사점</div>
+                  <div class="field-sub">종합 주장 + 정책·사회적 과제 제시</div>
+                </div>
+              </div>
+              <span class="char-counter" id="cc-5">0자</span>
+            </div>
+            <textarea class="large" placeholder="결론적으로, 데이터가 보여주는 디지털 전환은 한국 사회 전반의 구조적 재편을 의미하며... 이에 따라 디지털 교육 격차 해소와 취약 직종 종사자를 위한 전환 교육 정책이 시급히 요구된다." oninput="updateCount(this,&#39;cc-5&#39;)"></textarea>
+          </div>
+
+        </div><!-- /answer-structure -->
+      </div>
+
+      <div class="submit-area">
+        <div class="submit-info">
+          총 <strong id="total-chars2">0</strong>자 작성됨 &nbsp;|&nbsp; 권장: 800~1,000자
+          <span id="char-warning" style="color:var(--orange);margin-left:8px;display:none">⚠ 600자 이상 작성 필요</span>
+        </div>
+        <div class="submit-buttons">
+          <button class="btn-save" onclick="saveDraft()">임시 저장</button>
+          <button class="btn-submit" onclick="submitAnswer()">제출하기</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /tab-answer -->
+
+
+  <!-- ══════════════ TAB 3: 예시 답안 ══════════════ -->
+  <div id="tab-example" class="tab-panel">
+
+    <div class="annotation-note">
+      <strong>교사 참고용 예시 답안입니다.</strong> 학생 배포 시 이 탭은 수업 방식에 따라 공개 여부를 결정하세요. 본 예시는 <strong>A등급</strong> 기준 모범 답안입니다.
+    </div>
+
+    <div class="example-answer-wrap">
+      <button class="example-toggle" onclick="toggleExample(this)">
+        💡 모범 예시 답안 보기 <span class="toggle-tag">A등급 · 892자</span>
+        <span class="toggle-arrow">▼</span>
+      </button>
+      <div class="example-body">
+        <div class="example-body-inner">
+
+          <div class="example-section thesis">
+            <div class="example-section-title">① 주장 (Thesis)</div>
+            <p>
+              제시된 데이터들은 디지털 전환이 한국 사회의 노동·소비·교육 구조를 동시다발적으로 재편하고 있음을 명확히 보여준다. 이 변화는 단순한 기술 도입을 넘어 사회적 기회의 재분배 문제와 직결되며, 디지털 역량의 유무가 개인의 경제적·사회적 위치를 결정하는 핵심 변수로 부상하고 있다. 즉, 디지털 전환은 생산성과 효율성을 높이는 동시에 새로운 불평등 구조를 형성하는 양면적 사회변화이다.
+            </p>
+          </div>
+
+          <div class="example-section evidence">
+            <div class="example-section-title">② 근거 1 — 노동 구조 변화</div>
+            <p>
+              노동 구조의 변화는 가장 극적으로 나타난다. <span class="data-ref">[자료1]</span>에 따르면 재택근무 비율은 2018년 2.3%에서 2024년 18.2%로 7.9배 급증했으며, IT직종의 경우 51.3%가 재택 형태로 전환되었다. 이는 물리적 공간에 묶인 전통적 노동 개념이 해체되고 있음을 의미한다. 나아가 <span class="data-ref">[자료4]</span>는 이 변화의 이면을 드러낸다. 사무·회계직의 자동화 위험도는 68%에 달하는 반면, IT·개발직은 34%의 신규 직종을 창출하고 있다. 이는 디지털 전환이 단순히 일하는 방식을 바꾸는 것이 아니라, 직업 구조 자체를 재편하고 있음을 보여준다.
+            </p>
+          </div>
+
+          <div class="example-section evidence" style="border-left-color:var(--orange)">
+            <div class="example-section-title" style="color:var(--orange)">③ 근거 2 — 소비·교육 구조 변화</div>
+            <p>
+              소비 구조에서도 동일한 전환이 나타난다. <span class="data-ref">[자료2]</span>에 따르면 온라인 쇼핑 거래액은 2015년 54.1조 원에서 2024년 248.3조 원으로 9년 만에 4.6배 성장했고, 모바일 비중은 76.1%에 달해 오프라인 중심 소비 생태계가 근본적으로 대체되고 있다. 이와 병행하여 교육 구조도 변화하고 있다. <span class="data-ref">[자료3]</span>은 에듀테크 시장이 7년간 4.9배 성장했으며, AI 튜터 활용률이 28.9%에 이른 것을 보여준다. 1인당 주간 온라인 학습 시간이 1.2시간에서 12.7시간으로 증가했다는 사실은 학습이 학교라는 공간에서 개인화·디지털화된 플랫폼으로 이동했음을 뜻한다.
+            </p>
+          </div>
+
+          <div class="example-section counter">
+            <div class="example-section-title">④ 반론 인식 및 재반박</div>
+            <p>
+              물론 이러한 변화를 전면적 진보로 보는 시각에는 반론이 존재한다. <span class="data-ref">[자료5]</span>는 20대의 AI 활용 점수(76.2점)와 60대 이상(18.3점) 간의 격차가 57.9점에 달하며, 저소득층과 고소득층 사이에도 31.5점 차이가 있음을 보여준다. 이는 디지털 전환의 혜택이 특정 세대·계층에 집중되고, 나머지는 오히려 소외될 수 있음을 시사한다. 그러나 이 반론은 디지털 전환 자체를 부정하는 근거가 아니라, <strong>전환을 어떻게 관리하느냐</strong>의 문제를 제기한다. 격차 자체가 정책적 개입의 필요성을 역설적으로 증명하는 것이다.
+            </p>
+          </div>
+
+          <div class="example-section conclusion">
+            <div class="example-section-title">⑤ 결론 및 사회적 시사점</div>
+            <p>
+              종합하면, 다섯 개의 데이터는 모두 디지털 전환이 한국 사회의 구조를 돌이킬 수 없이 재편하고 있음을 가리키고 있다. 노동은 장소에서 분리되고, 소비는 알고리즘 기반 플랫폼으로 이동했으며, 교육은 AI 개인화 서비스로 진화하고 있다. 그러나 이 변화는 자동적으로 평등한 사회를 만들지 않는다. <span class="data-ref">[자료4]</span>와 <span class="data-ref">[자료5]</span>가 함께 보여주듯, 디지털 역량을 갖춘 집단과 그렇지 못한 집단 사이의 격차는 경제적 불평등으로 연결된다. 따라서 사회는 디지털 전환의 속도를 관리하고, 전환 교육과 디지털 포용 정책을 통해 그 혜택을 사회 전체로 확산시키는 전략을 수립해야 한다. 기술은 도구이며, 사회 구조를 결정하는 것은 결국 그 도구를 누가, 어떻게 사용하는가에 달려 있다.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 부분 점수 예시 -->
+    <div class="example-answer-wrap">
+      <button class="example-toggle" onclick="toggleExample(this)">
+        📄 B등급 예시 답안 (부분 근거 활용) <span class="toggle-tag">B등급 · 521자</span>
+        <span class="toggle-arrow">▼</span>
+      </button>
+      <div class="example-body">
+        <div class="example-body-inner">
+          <div class="example-section evidence" style="border-left-color:var(--accent)">
+            <div class="example-section-title" style="color:var(--accent)">B등급 예시 (자료 2개 활용, 반론 미흡)</div>
+            <p>
+              디지털 전환은 우리 사회를 빠르게 변화시키고 있다. <span class="data-ref">[자료1]</span>에서 볼 수 있듯이 재택근무가 증가하면서 일하는 방식이 달라지고 있고, 회사에 출근하지 않아도 일할 수 있는 환경이 만들어지고 있다. 또 <span class="data-ref">[자료2]</span>를 보면 온라인 쇼핑이 매우 크게 늘어 이제는 오프라인 쇼핑보다 온라인이 더 주류가 되었다고 볼 수 있다. 이러한 변화들은 우리 삶의 방식 전체를 바꾸고 있다.<br><br>
+              물론 모든 사람이 이 변화를 잘 따라가는 것은 아니다. 노인이나 저소득층은 디지털 기기를 잘 쓰지 못할 수 있다. 그렇지만 전체적으로 보면 디지털 전환은 사회를 더 편리하게 만들고 있으며, 앞으로도 이 방향으로 발전할 것이다. 따라서 우리는 디지털 기술을 잘 익히고 활용하는 능력을 길러야 한다.
+            </p>
+          </div>
+          <div class="insight-bar">
+            <strong>B등급 평가 코멘트:</strong> 자료 2개만 인용(최소 3개 요건 미충족), 수치 근거 부족, 반론 처리가 피상적, 5단 구조 불완전. 주장과 근거 연결은 이루어짐.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /tab-example -->
+
+
+  <!-- ══════════════ TAB 4: 채점 기준표 ══════════════ -->
+  <div id="tab-rubric" class="tab-panel">
+
+    <div class="annotation-note">
+      <strong>채점 기준 안내:</strong> 4개 항목(각 25점)을 A~D 4단계로 평가합니다. 총점 100점 기준이며, A=25점 / B=18점 / C=10점 / D=4점으로 환산합니다.
+    </div>
+
+    <div class="rubric-grid">
+
+      <!-- 항목1 -->
+      <div class="rubric-card">
+        <div class="rubric-card-header">
+          <h4>① 주장의 명확성 &amp; 논제 이해</h4>
+          <span class="score-total">25점</span>
+        </div>
+        <div class="rubric-levels">
+          <div class="rubric-level level-A">
+            <div class="level-header"><span class="level-name">A</span><span class="level-score">25점</span></div>
+            <p class="level-desc">디지털 전환의 다면적 영향을 명확히 인식하고, 논제를 정확하게 이해한 주장을 1문단 내에 압축적으로 서술. 핵심 개념(노동·소비·교육) 모두 언급.</p>
+          </div>
+          <div class="rubric-level level-B">
+            <div class="level-header"><span class="level-name">B</span><span class="level-score">18점</span></div>
+            <p class="level-desc">주장이 제시되었으나 일부 개념(노동·소비·교육 중 1개)이 누락되거나 표현이 모호함. 논제 이해는 대체로 적절함.</p>
+          </div>
+          <div class="rubric-level level-C">
+            <div class="level-header"><span class="level-name">C</span><span class="level-score">10점</span></div>
+            <p class="level-desc">주장이 있으나 논제와의 연관성이 약하거나 지나치게 일반적. 디지털 전환을 피상적으로만 언급.</p>
+          </div>
+          <div class="rubric-level level-D">
+            <div class="level-header"><span class="level-name">D</span><span class="level-score">4점</span></div>
+            <p class="level-desc">명확한 주장 없음. 논제를 이해하지 못한 서술. 또는 주장만 있고 논증이 전무.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 항목2 -->
+      <div class="rubric-card">
+        <div class="rubric-card-header">
+          <h4>② 데이터 인용 &amp; 해석 능력</h4>
+          <span class="score-total">25점</span>
+        </div>
+        <div class="rubric-levels">
+          <div class="rubric-level level-A">
+            <div class="level-header"><span class="level-name">A</span><span class="level-score">25점</span></div>
+            <p class="level-desc">3개 이상 자료를 번호와 구체적 수치로 정확히 인용. 수치를 단순 제시하지 않고 변화율·비교·맥락 해석까지 서술. 자료 간 연결 논리 있음.</p>
+          </div>
+          <div class="rubric-level level-B">
+            <div class="level-header"><span class="level-name">B</span><span class="level-score">18점</span></div>
+            <p class="level-desc">2개 자료 인용 또는 3개 인용했으나 수치 해석이 피상적. 자료 간 연결이 약함.</p>
+          </div>
+          <div class="rubric-level level-C">
+            <div class="level-header"><span class="level-name">C</span><span class="level-score">10점</span></div>
+            <p class="level-desc">1개 자료만 인용하거나 자료 번호 없이 막연하게 인용. 수치 오류 또는 왜곡 해석 포함.</p>
+          </div>
+          <div class="rubric-level level-D">
+            <div class="level-header"><span class="level-name">D</span><span class="level-score">4점</span></div>
+            <p class="level-desc">데이터 인용 없음. 또는 제시된 자료와 무관한 내용으로 대체.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 항목3 -->
+      <div class="rubric-card">
+        <div class="rubric-card-header">
+          <h4>③ 반론 인식 &amp; 논리적 재반박</h4>
+          <span class="score-total">25점</span>
+        </div>
+        <div class="rubric-levels">
+          <div class="rubric-level level-A">
+            <div class="level-header"><span class="level-name">A</span><span class="level-score">25점</span></div>
+            <p class="level-desc">디지털 격차·불평등 등 반론을 구체적으로 인식하고, 그것이 주장을 무력화하지 않음을 데이터로 재반박. 논리 일관성 유지.</p>
+          </div>
+          <div class="rubric-level level-B">
+            <div class="level-header"><span class="level-name">B</span><span class="level-score">18점</span></div>
+            <p class="level-desc">반론을 언급했으나 재반박이 약하거나 단순히 "그래도 좋다"는 수준에 그침.</p>
+          </div>
+          <div class="rubric-level level-C">
+            <div class="level-header"><span class="level-name">C</span><span class="level-score">10점</span></div>
+            <p class="level-desc">반론을 형식적으로만 언급하고 실질적 대응 없음.</p>
+          </div>
+          <div class="rubric-level level-D">
+            <div class="level-header"><span class="level-name">D</span><span class="level-score">4점</span></div>
+            <p class="level-desc">반론 인식 없음. 일방적 주장만 나열.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 항목4 -->
+      <div class="rubric-card">
+        <div class="rubric-card-header">
+          <h4>④ 결론 &amp; 사회적 시사점 도출</h4>
+          <span class="score-total">25점</span>
+        </div>
+        <div class="rubric-levels">
+          <div class="rubric-level level-A">
+            <div class="level-header"><span class="level-name">A</span><span class="level-score">25점</span></div>
+            <p class="level-desc">앞의 논증을 종합하여 사회적 과제(정책·교육·제도)를 구체적으로 제시. 단순 요약이 아닌 새로운 인사이트 포함. 논술 전체의 완결성 높음.</p>
+          </div>
+          <div class="rubric-level level-B">
+            <div class="level-header"><span class="level-name">B</span><span class="level-score">18점</span></div>
+            <p class="level-desc">시사점이 언급되나 구체성 부족. 앞 내용의 단순 반복 수준.</p>
+          </div>
+          <div class="rubric-level level-C">
+            <div class="level-header"><span class="level-name">C</span><span class="level-score">10점</span></div>
+            <p class="level-desc">결론이 있으나 논증과 연결되지 않은 개인 의견으로만 마무리.</p>
+          </div>
+          <div class="rubric-level level-D">
+            <div class="level-header"><span class="level-name">D</span><span class="level-score">4점</span></div>
+            <p class="level-desc">결론 없음. 또는 논술과 무관한 내용으로 마무리.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /rubric-grid -->
+  </div><!-- /tab-rubric -->
+
+</main>
+
+<script>
+// ── TAB ──────────────────────────────────────────────────
+function switchTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// ── CHARS ─────────────────────────────────────────────────
+function updateCount(el, counterId) {
+  const len = el.value.length;
+  const counter = document.getElementById(counterId);
+  counter.textContent = len + '자';
+  counter.className = 'char-counter' + (len >= 80 ? ' ok' : len >= 40 ? '' : '');
+  updateTotal();
+}
+
+function updateTotal() {
+  let total = 0;
+  document.querySelectorAll('.answer-field textarea').forEach(t => total += t.value.length);
+  document.getElementById('total-chars').textContent = total;
+  document.getElementById('total-chars2').textContent = total;
+  const warn = document.getElementById('char-warning');
+  warn.style.display = total < 600 ? 'inline' : 'none';
+}
+
+// ── EVIDENCE CHIPS ────────────────────────────────────────
+function toggleChip(el) {
+  el.classList.toggle('selected');
+}
+
+// ── EXAMPLE TOGGLE ────────────────────────────────────────
+function toggleExample(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+
+// ── SAVE ──────────────────────────────────────────────────
+function saveDraft() {
+  const answers = {};
+  document.querySelectorAll('.answer-field').forEach((f, i) => {
+    answers['field_' + (i+1)] = f.querySelector('textarea').value;
+  });
+  localStorage.setItem('draft_answer', JSON.stringify(answers));
+  const btn = event.currentTarget;
+  const orig = btn.textContent;
+  btn.textContent = '✓ 저장됨';
+  btn.style.color = 'var(--green)';
+  setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 1500);
+}
+
+function loadDraft() {
+  const saved = localStorage.getItem('draft_answer');
+  if (!saved) return;
+  const answers = JSON.parse(saved);
+  document.querySelectorAll('.answer-field').forEach((f, i) => {
+    const key = 'field_' + (i+1);
+    if (answers[key]) {
+      const ta = f.querySelector('textarea');
+      ta.value = answers[key];
+    }
+  });
+  updateTotal();
+}
+
+function submitAnswer() {
+  let total = 0;
+  document.querySelectorAll('.answer-field textarea').forEach(t => total += t.value.length);
+  if (total < 200) {
+    alert('답안을 충분히 작성한 후 제출해주세요. (현재: ' + total + '자)');
+    return;
+  }
+  if (confirm('답안을 제출하시겠습니까? 제출 후에는 수정이 불가합니다.')) {
+    alert('제출이 완료되었습니다. 수고하셨습니다! ✓');
+  }
+}
+
+// ── CHARTS ────────────────────────────────────────────────
+Chart.defaults.color = '#8b949e';
+Chart.defaults.font.family = "'IBM Plex Mono', monospace";
+
+const chartDefaults = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: { legend: { labels: { font: { size: 11 }, boxWidth: 12, padding: 12 } } },
+  scales: {
+    x: { grid: { color: '#21262d' }, ticks: { font: { size: 10 } } },
+    y: { grid: { color: '#21262d' }, ticks: { font: { size: 10 } } }
+  }
+};
+
+// Chart1: 재택근무
+new Chart(document.getElementById('chart1'), {
+  type: 'line',
+  data: {
+    labels: ['2018','2020','2022','2024'],
+    datasets: [
+      { label: '전체', data: [2.3,11.4,14.8,18.2], borderColor: '#58a6ff', backgroundColor: 'rgba(88,166,255,0.1)', tension: 0.4, fill: true, pointRadius: 4 },
+      { label: 'IT직종', data: [8.1,38.2,42.5,51.3], borderColor: '#3fb950', backgroundColor: 'rgba(63,185,80,0.07)', tension: 0.4, fill: true, pointRadius: 4 },
+      { label: '제조업', data: [0.4,1.2,1.8,2.1], borderColor: '#f0883e', backgroundColor: 'rgba(240,136,62,0.07)', tension: 0.4, fill: true, pointRadius: 4 }
+    ]
+  },
+  options: { ...chartDefaults, plugins: { ...chartDefaults.plugins, title: { display: false } } }
+});
+
+// Chart2: 온라인쇼핑
+new Chart(document.getElementById('chart2'), {
+  type: 'bar',
+  data: {
+    labels: ['2015','2018','2021','2024'],
+    datasets: [
+      { label: '거래액(조원)', data: [54.1,111.9,187.6,248.3], backgroundColor: 'rgba(63,185,80,0.7)', borderColor: '#3fb950', borderWidth: 1, yAxisID: 'y' },
+      { label: '모바일비율(%)', data: [31.2,58.7,69.4,76.1], type: 'line', borderColor: '#58a6ff', backgroundColor: 'transparent', tension: 0.4, pointRadius: 4, yAxisID: 'y1' }
+    ]
+  },
+  options: {
+    ...chartDefaults,
+    scales: {
+      x: { grid: { color: '#21262d' } },
+      y: { grid: { color: '#21262d' }, position: 'left', ticks: { font: { size: 10 } } },
+      y1: { grid: { display: false }, position: 'right', max: 100, ticks: { font: { size: 10 } } }
+    }
+  }
+});
+
+// Chart3: 에듀테크
+new Chart(document.getElementById('chart3'), {
+  type: 'line',
+  data: {
+    labels: ['2017','2020','2022','2024'],
+    datasets: [
+      { label: '시장규모(억원)', data: [21400,48900,72300,104700], borderColor: '#f0883e', backgroundColor: 'rgba(240,136,62,0.1)', tension: 0.4, fill: true, pointRadius: 4, yAxisID: 'y' },
+      { label: '온라인학습(h/주)', data: [1.2,6.8,9.4,12.7], borderColor: '#bc8cff', backgroundColor: 'transparent', tension: 0.4, pointRadius: 4, yAxisID: 'y1' }
+    ]
+  },
+  options: {
+    ...chartDefaults,
+    scales: {
+      x: { grid: { color: '#21262d' } },
+      y: { grid: { color: '#21262d' }, position: 'left', ticks: { font: { size: 10 } } },
+      y1: { grid: { display: false }, position: 'right', ticks: { font: { size: 10 } } }
+    }
+  }
+});
+
+// Chart4: 자동화위험 (수평 막대)
+new Chart(document.getElementById('chart4'), {
+  type: 'bar',
+  data: {
+    labels: ['사무/회계직','운송/배달직','예술/창작직','IT/개발직','의료/복지직'],
+    datasets: [
+      { label: '자동화 대체율(%)', data: [68,52,34,11,7], backgroundColor: ['rgba(255,123,114,0.7)','rgba(255,123,114,0.5)','rgba(240,136,62,0.6)','rgba(88,166,255,0.6)','rgba(63,185,80,0.6)'], borderWidth: 0 }
+    ]
+  },
+  options: {
+    ...chartDefaults,
+    indexAxis: 'y',
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { color: '#21262d' }, max: 100, ticks: { font: { size: 10 } } },
+      y: { grid: { display: false }, ticks: { font: { size: 10 } } }
+    }
+  }
+});
+
+// Chart5: 디지털 리터러시 격차 (레이더)
+new Chart(document.getElementById('chart5'), {
+  type: 'radar',
+  data: {
+    labels: ['기기활용','정보검색','콘텐츠생산','AI활용','보안인식'],
+    datasets: [
+      { label: '20대', data: [92,88,85,76,81], borderColor: '#58a6ff', backgroundColor: 'rgba(88,166,255,0.15)', pointRadius: 3, borderWidth: 2 },
+      { label: '60대+', data: [48,44,32,18,35], borderColor: '#ff7b72', backgroundColor: 'rgba(255,123,114,0.1)', pointRadius: 3, borderWidth: 2 },
+      { label: '고소득', data: [88,85,82,71,79], borderColor: '#3fb950', backgroundColor: 'rgba(63,185,80,0.1)', pointRadius: 3, borderWidth: 2 },
+      { label: '저소득', data: [60,55,49,32,47], borderColor: '#d29922', backgroundColor: 'rgba(210,153,34,0.1)', pointRadius: 3, borderWidth: 2 }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { labels: { font: { size: 10 }, boxWidth: 10 } } },
+    scales: {
+      r: {
+        grid: { color: '#21262d' },
+        ticks: { display: false, stepSize: 20 },
+        pointLabels: { font: { size: 10 }, color: '#8b949e' },
+        min: 0, max: 100
+      }
+    }
+  }
+});
+
+// ── INIT ─────────────────────────────────────────────────
+window.onload = () => { loadDraft(); };
+</script>
+
+
+</body></html>
